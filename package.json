@@ -1,5 +1,5 @@
 {
-  "name": "new-app",
+  "name": "docker-vue-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {

@@ -1,24 +1,48 @@
-# new-app
+# docker-vue-app
 
-## Project setup
-```
-npm install
-```
+## Dev
 
-### Compiles and hot-reloads for development
+### Docker
+Build Docker image
 ```
-npm run serve
+docker build -t my-app:dev .
 ```
 
-### Compiles and minifies for production
+Run Docker Container
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+docker run -v ${PWD}:/app -v /app/node_modules -p 8081:8080 -rm my-app:dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Docker Compose
+Build And Run 
+```
+docker-compose up -d --build
+```
+
+Stop
+```
+docker-compose stop
+```
+
+## Production
+
+Build Docker image
+```
+docker build -f Dockerfile-prod -t my-app:prod .
+```
+
+Run Docker Container
+```
+docker run -it -p 80:80 --rm my-app:prod
+```
+
+### Docker Compose
+Build And Run 
+```
+docker-compose -f docker-compose-prod.yaml up -d --build
+```
+
+Stop
+```
+docker-compose -f docker-compose-prod.yaml stop
+```
